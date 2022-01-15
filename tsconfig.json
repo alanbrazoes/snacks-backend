@@ -4,7 +4,8 @@
     "paths": {
       "@img/*": ["./public/images/*"],
       "@controllers/*": ["./src/controllers/*"],
-      "@router": ["./src/routes.ts"]
+      "@router": ["src/routes.ts"],
+      "@views/*": ["./src/views/*"]
     },
     "target": "es2016",                                  
     "module": "commonjs",                                
@@ -14,6 +15,6 @@
     "strict": true,                                      
     "skipLibCheck": true                                 
   },
-  "include": ["./src"],
+  "include": ["./src", "src/index.ts", "src/routes.ts"],
   "exclude": ["node_modules"]
 }
