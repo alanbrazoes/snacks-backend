@@ -2,10 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@img/*": ["./public/images/*"],
+      "@img/*": ["public/images/*"],
       "@controllers/*": ["./src/controllers/*"],
       "@router": ["src/routes.ts"],
-      "@views/*": ["./src/views/*"]
+      "@views/*": ["./src/views/*"],
+      "@public/*": ["./public/*"],
     },
     "target": "es2016",                                  
     "module": "commonjs",                                
@@ -15,6 +16,6 @@
     "strict": true,                                      
     "skipLibCheck": true                                 
   },
-  "include": ["./src", "src/index.ts", "src/routes.ts"],
+  "include": ["./src", "server.ts", "src/routes.ts"],
   "exclude": ["node_modules"]
 }
