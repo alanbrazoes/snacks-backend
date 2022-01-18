@@ -7,6 +7,7 @@
       "@router": ["src/routes.ts"],
       "@views/*": ["./src/views/*"],
       "@public/*": ["./public/*"],
+      "@models/*": ["./src/models/*"]
     },
     "target": "es2016",                                  
     "module": "commonjs",                                

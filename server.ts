@@ -7,6 +7,9 @@ import path from 'path';
 import router from '@router';
 import mongoose from 'mongoose';
 import endpoint from './endpoints.config';
+// import helmet from 'helmet';
+// import csrf from 'csurf';
+
 const app = express();
 
 mongoose
@@ -17,13 +20,14 @@ mongoose
   .catch((e) => console.log(e));
 
 app.use(cors());
+// app.use(helmet());
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-app.set('views', path.resolve(__dirname, 'src', 'views'));
-app.set('view engine', 'ejs');
+// app.use(csrf());
 
 app.use(router);
 
