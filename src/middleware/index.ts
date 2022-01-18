@@ -1,5 +1,9 @@
+import { NextFunction, Request, Response } from 'express';
+
 export default {
-  teste: () => {
-    return 'oi';
+  teste: (req: Request, res: Response, next: NextFunction) => {
+    console.log('aqui');
+    return res;
+    next();
   },
 };

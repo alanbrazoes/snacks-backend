@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import snacksControler from '@controllers/snacksController';
+import snacksController from '@controllers/snacksController';
 
 const router = Router();
 
 // Rotas snacks
-router.get('/snacks', snacksControler.index);
+router.get('/', snacksController.index);
 
 export default router;
