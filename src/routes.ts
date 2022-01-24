@@ -6,5 +6,6 @@ const router = Router();
 
 // Rotas snacks
 router.get('/', snacksController.index);
+router.get('/burguer/:id', snacksController.getById);
 
 export default router;
