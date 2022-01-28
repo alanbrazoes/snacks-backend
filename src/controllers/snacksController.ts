@@ -7,16 +7,17 @@ export default {
       const data = await SnacksModel.find();
       return res.json(data);
     } catch (error) {
-      console.log(error);
+      return res.send(error);
     }
   },
 
   async getById(req: Request, res: Response) {
     try {
-      const burguer = await SnacksModel.findById(req.params.id);
+      const { id } = req.params;
+      const burguer = await SnacksModel.findById(id);
       return res.json(burguer);
     } catch (error) {
-      return error;
+      return res.send(error);
     }
   },
 };
