@@ -5,10 +5,10 @@ export default {
   async createDrink(req: Request, res: Response) {
     try {
       const { name, price } = req.body;
-      const response = await DrinkModel.create({ name, price });
-      res.json(response);
+      await DrinkModel.create({ name, price });
+      return res.status(201).end();
     } catch (error) {
-      res.send(error);
+      return res.status(400).send(error);
     }
   },
 
@@ -17,7 +17,7 @@ export default {
       const data = await DrinkModel.find();
       return res.json(data);
     } catch (error) {
-      res.json(error);
+      return res.status(404).send(error);
     }
   },
 };
