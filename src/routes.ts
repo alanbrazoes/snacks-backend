@@ -3,20 +3,41 @@ import { Router } from 'express';
 import burguerController from '@controllers/burguerController';
 import loginController from '@controllers/loginController';
 import drinkController from '@controllers/drinkController';
+import pratosController from '@controllers/pratosController';
 
 const router = Router();
 
 // Burguer
-router.get('/burguers', burguerController.index);
-router.get('/burguer/:id', burguerController.getById);
+const { getAllBurguer, getById, createBurguer, updateBurguer, deleteBurguer } = burguerController;
 
-router.post('/createburguer', burguerController.createBurguer);
+router.get('/burguers', getAllBurguer);
+router.get('/burguer/:id', getById);
+router.post('/create/burguer', createBurguer);
+router.put('/burguer/update/:id', updateBurguer);
+router.delete('/burguer/delete/:id', deleteBurguer);
 
 // Drinks
-router.post('/createdrink', drinkController.createDrink);
-router.get('/drinks', drinkController.getAllDrinks);
+const { getAllDrinks, getDrink, deleteDrink, createDrink, updateDrink } = drinkController;
+
+router.get('/drinks', getAllDrinks);
+router.get('/drink/:id', getDrink);
+router.post('/create/drink', createDrink);
+router.put('/drink/update/:id', updateDrink);
+router.delete('/drink/delete/:id', deleteDrink);
+
+// Pratos
+const { getAllPratos, getPrato, deletePrato, updatePrato, createNewPrato } = pratosController;
+
+router.get('/pratos', getAllPratos);
+router.get('/prato/:id', getPrato);
+router.post('/create/prato', createNewPrato);
+router.put('/pratos/update/:id', updatePrato);
+router.delete('/prato/delete/:id', deletePrato);
 
 // Login
-router.post('/login', loginController.index);
+const { getUser, signin } = loginController;
+
+router.get('/user/:id', getUser);
+router.post('/singin', signin);
 
 export default router;
