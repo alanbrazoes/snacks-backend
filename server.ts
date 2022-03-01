@@ -15,9 +15,9 @@ const app = express();
 mongoose
   .connect(endpoint.url)
   .then(() => {
-    app.emit('Foi');
+    app.emit('ok');
   })
-  .catch((e) => console.log(e));
+  .catch((e) => app.emit(e));
 
 app.use(cors());
 // app.use(helmet());
@@ -30,6 +30,6 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 
 app.use(router);
 
-app.on('Foi', () => {
+app.on('ok', () => {
   app.listen(endpoint.listen);
 });

@@ -23,8 +23,8 @@ export default {
 
   async createNewPrato(req: Request, res: Response) {
     try {
-      const { name, price, ingredients } = req.body;
-      await PratosModel.create({ name, price, ingredients });
+      const { name, price, ingredients, type } = req.body;
+      await PratosModel.create({ name, price, ingredients, type });
       return res.status(201).end();
     } catch (error) {
       return res.status(400).send('Nao foi possivel cria um prato');

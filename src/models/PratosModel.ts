@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 
-const PratosScheema = new mongoose.Schema({
+const DishesScheema = new mongoose.Schema({
   name: String,
   price: Number,
   ingredients: Array,
+  type: String,
 });
 
-const PratosModel = mongoose.model('pratos', PratosScheema);
+const PratosModel = mongoose.model('dishes', DishesScheema);
 
 export default PratosModel;

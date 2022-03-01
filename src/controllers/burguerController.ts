@@ -24,8 +24,8 @@ export default {
 
   async createBurguer(req: Request, res: Response) {
     try {
-      const { name, preparationTime, ingredients } = req.body;
-      await BurguerModel.create({ name, preparationTime, ingredients });
+      const { name, preparationTime, ingredients, price, type } = req.body;
+      await BurguerModel.create({ name, preparationTime, ingredients, price, type });
       return res.status(201).end();
     } catch (error) {
       return res.status(400).send(error);

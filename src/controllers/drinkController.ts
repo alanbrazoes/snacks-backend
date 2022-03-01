@@ -4,8 +4,8 @@ import { Request, Response } from 'express';
 export default {
   async createDrink(req: Request, res: Response) {
     try {
-      const { name, price } = req.body;
-      await DrinkModel.create({ name, price });
+      const { name, price, type } = req.body;
+      await DrinkModel.create({ name, price, type });
       return res.status(201).end();
     } catch (error) {
       return res.status(400).send(error);

@@ -28,11 +28,11 @@ router.delete('/drink/delete/:id', deleteDrink);
 // Pratos
 const { getAllPratos, getPrato, deletePrato, updatePrato, createNewPrato } = pratosController;
 
-router.get('/pratos', getAllPratos);
-router.get('/prato/:id', getPrato);
-router.post('/create/prato', createNewPrato);
+router.get('/dishes', getAllPratos);
+router.get('/dishes/:id', getPrato);
+router.post('/create/dishes', createNewPrato);
 router.put('/pratos/update/:id', updatePrato);
-router.delete('/prato/delete/:id', deletePrato);
+router.delete('/dishes/delete/:id', deletePrato);
 
 // Login
 const { getUser, signin } = loginController;
