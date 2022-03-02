@@ -15,6 +15,7 @@ mongoose
   .catch((e) => app.emit(e));
 
 app.use(cors());
+
 // app.use(helmet());
 
 app.use(express.urlencoded({ extended: true }));
