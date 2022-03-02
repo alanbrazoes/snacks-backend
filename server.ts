@@ -27,5 +27,5 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(router);
 
 app.on('ok', () => {
-  app.listen(3333);
+  app.listen(process.env.PORT || process.env.LISTEN);
 });
