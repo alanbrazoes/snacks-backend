@@ -1,4 +1,4 @@
-export default {
-  url: process.env.URLSERVER || '',
-  listen: process.env.LISTEN,
-};
+const url = process.env.URLSERVER as string;
+const listen = process.env.LISTEN
+
+export default { url, listen };

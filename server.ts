@@ -1,6 +1,6 @@
 import express from 'express';
-import { config } from 'dotenv';
-import {connect} from 'mongoose';
+import 'dotenv/config';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
 
@@ -8,14 +8,14 @@ import router from './src/routes';
 import endpoint from './endpoints.config';
 // import helmet from 'helmet';
 // import csrf from 'csurf';
-config({path: './env'})
-const app = express();
 
-connect(endpoint.url)
+const app = express();
+mongoose
+  .connect(endpoint.url)
   .then(() => {
     app.emit('ok');
   })
-  .catch((e: string) => app.emit(e));
+  .catch((e) => app.emit(e));
 
 app.use(cors());
 // app.use(helmet());
@@ -29,5 +29,5 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(router);
 
 app.on('ok', () => {
-  app.listen(endpoint.listen);
+  app.listen(3333);
 });

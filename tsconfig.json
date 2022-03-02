@@ -9,8 +9,8 @@
       "@public/*": ["./public/*"],
       "@models/*": ["./src/models/*"]
     },
-    "target": "ES2015",                                  
-    "module": "ES2015",                                
+    "target": "es2016",                                  
+    "module": "CommonJS",                                
     "outDir": "./dist",       
     "moduleResolution": "node",                       
     "esModuleInterop": true,                             
