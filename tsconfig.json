@@ -9,9 +9,10 @@
       "@public/*": ["./public/*"],
       "@models/*": ["./src/models/*"]
     },
-    "target": "es2016",                                  
-    "module": "commonjs",                                
-    "outDir": "./dist",                              
+    "target": "ES2015",                                  
+    "module": "ES2015",                                
+    "outDir": "./dist",       
+    "moduleResolution": "node",                       
     "esModuleInterop": true,                             
     "forceConsistentCasingInFileNames": true,            
     "strict": true,                                      
