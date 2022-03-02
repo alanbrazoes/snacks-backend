@@ -12,9 +12,7 @@ import endpoint from './endpoints.config';
 const app = express();
 mongoose
   .connect(endpoint.url)
-  .then(() => {
-    app.emit('ok');
-  })
+  .then(() => app.emit('ok'))
   .catch((e) => app.emit(e));
 
 app.use(cors());

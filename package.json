@@ -5,13 +5,15 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "clear && ts-node-dev -r tsconfig-paths/register --respawn server.ts"
+    "dev": "clear && ts-node-dev -r tsconfig-paths/register --respawn server.ts",
+    "start": "node ./dist/server"
   },
   "author": "alan",
   "license": "ISC",
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/csurf": "^1.11.2",
+    "@types/express": "^4.17.13",
     "@types/node": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
@@ -26,7 +28,6 @@
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.13",
     "@types/mongoose": "^5.11.97",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^4.6.0",

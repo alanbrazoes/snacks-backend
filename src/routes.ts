@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 
 import burguerController from '@controllers/burguerController';
 import loginController from '@controllers/loginController';
