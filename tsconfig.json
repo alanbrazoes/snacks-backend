@@ -2,22 +2,21 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@img/*": ["public/images/*"],
       "@controllers/*": ["./src/controllers/*"],
-      "@router": ["src/routes.ts"],
+      "@router/*": ["./src/modules/*"],
       "@views/*": ["./src/views/*"],
       "@public/*": ["./public/*"],
       "@models/*": ["./src/models/*"]
     },
-    "target": "es2016",                                  
-    "module": "CommonJS",                                
+    "target": "es6", 
+    "module": "CommonJS",                                                              
     "outDir": "./dist",       
-    "moduleResolution": "node",                       
+    "moduleResolution": "Node",                       
     "esModuleInterop": true,                             
     "forceConsistentCasingInFileNames": true,            
     "strict": true,                                      
-    "skipLibCheck": true                                 
+    "skipLibCheck": true,
   },
-  "include": ["./src", "server.ts", "src/routes.ts"],
+  "include": ["./src", "src/server.ts", "src/modules/index.routes.ts"],
   "exclude": ["node_modules"]
 }

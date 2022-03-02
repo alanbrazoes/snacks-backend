@@ -4,14 +4,13 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
 
-import router from './src/routes';
-import endpoint from './endpoints.config';
+import router from '@router/index.routes';
 // import helmet from 'helmet';
 // import csrf from 'csurf';
 
 const app = express();
 mongoose
-  .connect(endpoint.url)
+  .connect(process.env.URLSERVER as string)
   .then(() => app.emit('ok'))
   .catch((e) => app.emit(e));
 
