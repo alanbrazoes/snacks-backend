@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 
-import routes from '@router/index.routes';
+import routes from '@router/';
 
 const app = express();
 mongoose

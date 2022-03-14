@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
-      "@router/*": ["./src/modules/*"],
+      "@router/*": ["./src/routes"],
       "@models/*": ["./src/models/*"]
     },
     "target": "ES2017", 
@@ -20,6 +20,6 @@
     "rootDir": "./src",
     "resolveJsonModule": true,
   },
-  "include": ["./src", "src/server.ts", "src/modules/index.routes.ts"],
+  "include": ["./src", "src/server.ts", "src/routes.ts"],
   "exclude": ["node_modules"]
 }
