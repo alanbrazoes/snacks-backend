@@ -1,12 +1,12 @@
 import PratosModel from '@models/PratosModel';
 import { Request, Response } from 'express';
 
-export const getAllPratos = async (req: Request, res: Response) => {
+export const getAllPratos = async (req?: Request, res?: Response) => {
   try {
     const data = await PratosModel.find();
-    return res.status(200).json(data);
+    return res?.status(200).json(data);
   } catch (error) {
-    return res.status(404).send('Pratos não encontrado');
+    return res?.status(404).send('Pratos não encontrado');
   }
 };
 

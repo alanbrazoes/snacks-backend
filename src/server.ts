@@ -1,10 +1,10 @@
 import express from 'express';
 import 'dotenv/config';
 import mongoose from 'mongoose';
-import cors from 'cors';
-import helmet from 'helmet';
+// import cors from 'cors';
+// import helmet from 'helmet';
 
-import routes from '@router/';
+import routes from '@router';
 
 const app = express();
 mongoose
@@ -12,8 +12,8 @@ mongoose
   .then(() => app.emit('ok'))
   .catch((e) => app.emit(e));
 
-app.use(cors());
-app.use(helmet());
+// app.use(cors());
+// app.use(helmet());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

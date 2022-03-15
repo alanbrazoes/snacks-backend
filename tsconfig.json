@@ -3,8 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
-      "@router/*": ["./src/routes"],
-      "@models/*": ["./src/models/*"]
+      "@router": ["./src/routes"],
+      "@models/*": ["./src/models/*"],
+      "@middlewares/*": ["./src/middlewares/*"]
     },
     "target": "ES2017", 
     "module": "CommonJS",
