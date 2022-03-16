@@ -1,24 +1,24 @@
 import { Request, Response, NextFunction } from 'express';
-import BurguerModel from '@models/BurguerModel';
-import DrinkModel from '@models/DrinksModel';
-import PratosModel from '@models/PratosModel';
+import burguer from '@models/BurguerModel';
+import drink from '@models/DrinksModel';
+import pratos from '@models/PratosModel';
 
-const models = [BurguerModel, PratosModel, DrinkModel];
+const models = [burguer, pratos, drink];
 
 const getAllSnacks = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    let snack = {};
     const getSnacks = models.map(async (model) => {
       try {
         const data = await model.find();
-        return data;
+        snack = { ...snack, [model.modelName]: data };
       } catch (error) {
         return [];
       }
     });
 
-    const response = await Promise.all(getSnacks);
-
-    res.locals.all = response;
+    await Promise.all(getSnacks);
+    res.locals.all = snack;
     next();
   } catch (error) {
     return res.send(error);

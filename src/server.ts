@@ -1,7 +1,7 @@
 import express from 'express';
 import 'dotenv/config';
 import mongoose from 'mongoose';
-// import cors from 'cors';
+import cors from 'cors';
 // import helmet from 'helmet';
 
 import routes from '@router';
@@ -12,7 +12,7 @@ mongoose
   .then(() => app.emit('ok'))
   .catch((e) => app.emit(e));
 
-// app.use(cors());
+app.use(cors());
 // app.use(helmet());
 
 app.use(express.urlencoded({ extended: true }));
