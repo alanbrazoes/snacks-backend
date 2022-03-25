@@ -27,9 +27,9 @@ import { getAllSnack } from '@controllers/allSnacksController';
 
 const router = Router();
 
-router.get('/', getAllSnack);
+router.get('/', getAllSnacks, getAllSnack);
 
-router.get('/burguers', getAllSnacks, getAllBurguer);
+router.get('/burguers', getAllBurguer);
 router.get('/burguer/:id', getById);
 router.post('/create/burguer', createBurguer);
 router.put('/burguer/update/:id', updateBurguer);
