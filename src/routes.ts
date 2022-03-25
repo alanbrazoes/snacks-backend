@@ -22,14 +22,14 @@ import {
   updatePrato,
   createNewPrato,
 } from '@controllers/pratosController';
-// import getAllSnacks from '@middlewares/getAllSnacks';
+import getAllSnacks from '@middlewares/getAllSnacks';
 import { getAllSnack } from '@controllers/allSnacksController';
 
 const router = Router();
 
 router.get('/', getAllSnack);
 
-router.get('/burguers', getAllBurguer);
+router.get('/burguers', getAllSnacks, getAllBurguer);
 router.get('/burguer/:id', getById);
 router.post('/create/burguer', createBurguer);
 router.put('/burguer/update/:id', updateBurguer);
