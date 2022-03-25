@@ -22,12 +22,12 @@ import {
   updatePrato,
   createNewPrato,
 } from '@controllers/pratosController';
-import getAllSnacks from '@middlewares/getAllSnacks';
+// import getAllSnacks from '@middlewares/getAllSnacks';
 import { getAllSnack } from '@controllers/allSnacksController';
 
 const router = Router();
 
-router.get('/', getAllSnacks, getAllSnack);
+router.get('/', getAllSnack);
 
 router.get('/burguers', getAllBurguer);
 router.get('/burguer/:id', getById);
@@ -36,7 +36,6 @@ router.put('/burguer/update/:id', updateBurguer);
 router.delete('/burguer/delete/:id', deleteBurguer);
 
 // Drinks
-
 router.get('/drinks', getAllDrinks);
 router.get('/drink/:id', getDrink);
 router.post('/create/drink', createDrink);
@@ -44,7 +43,6 @@ router.put('/drink/update/:id', updateDrink);
 router.delete('/drink/delete/:id', deleteDrink);
 
 // Pratos
-
 router.get('/dishes', getAllPratos);
 router.get('/dishes/:id', getPrato);
 router.post('/create/dishes', createNewPrato);
@@ -52,7 +50,6 @@ router.put('/pratos/update/:id', updatePrato);
 router.delete('/dishes/delete/:id', deletePrato);
 
 // Login
-
 router.get('/user/:id', getUser);
 router.post('/singin', signin);
 
