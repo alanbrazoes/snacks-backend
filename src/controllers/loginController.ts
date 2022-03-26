@@ -31,6 +31,7 @@ export const getUser = async (req: Request, res: Response) => {
     const token = jwt.sign({ emailUser }, process.env.JSON_TOKEN as string, {
       expiresIn: process.env.TOKEN_EXPIRE,
     });
+
     return res.status(200).json({ token });
   } catch (error) {
     return res.status(500).send('user not found');
