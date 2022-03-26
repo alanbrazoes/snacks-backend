@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "16.13.2"
+  },
   "scripts": {
     "dev": "clear && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules ./src/server.ts",
     "start": "node dist/server.js",
