@@ -51,7 +51,7 @@ router.put('/pratos/update/:id', updatePrato);
 router.delete('/dishes/delete/:id', deletePrato);
 
 // Login
-router.get('/login', getUser);
+router.post('/login', getUser);
 router.post('/singin', signin);
 
 export default router;
