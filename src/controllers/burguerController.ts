@@ -25,7 +25,6 @@ export const createBurguer = async (req: Request, res: Response) => {
   try {
     const { name, preparationTime, ingredients, price, type } = req.body;
     await BurguerModel.create({ name, preparationTime, ingredients, price, type });
-    console.log(req.body);
     return res.status(201).json('sucess');
   } catch (error) {
     return res.status(400).send(error);
