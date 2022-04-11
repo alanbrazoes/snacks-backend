@@ -1,3 +1,4 @@
+import { tokenRequired } from '@middlewares/tokenRequired';
 import { Router } from 'express';
 
 import {
@@ -50,7 +51,7 @@ router.put('/pratos/update/:id', updatePrato);
 router.delete('/dishes/delete/:id', deletePrato);
 
 // Login
-router.get('/login', getUser);
+router.get('/login', tokenRequired, getUser);
 router.post('/singin', signin);
 
 export default router;
