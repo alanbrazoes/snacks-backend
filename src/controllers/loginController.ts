@@ -12,9 +12,11 @@ export const signin = async (req: Request, res: Response) => {
       parseInt(process.env.CHARACTERS_NUMBER as string)
     );
     await LoginModel.create({ email, password: passwordHash });
+    console.log(passwordHash);
     return res.status(200).json({ status: '200' });
   } catch (error) {
-    return res.status(500).send({ error });
+    console.log(error);
+    return res.status(500).send({ erro: error });
   }
 };
 
