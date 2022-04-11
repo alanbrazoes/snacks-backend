@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 
 const tokenRequired = (req: Request, res: Response, next: NextFunction) => {
   const { auth } = req.headers;
+  console.log('aqui');
 
   if (!auth) {
     return res.status(401).json({
