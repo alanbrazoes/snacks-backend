@@ -1,4 +1,3 @@
-import { tokenRequired } from '@middlewares/tokenRequired';
 import { Router } from 'express';
 
 import {
@@ -25,6 +24,7 @@ import {
 } from '@controllers/pratosController';
 import getAllSnacks from '@middlewares/getAllSnacks';
 import { getAllSnack } from '@controllers/allSnacksController';
+import tokenRequired from '@middlewares/tokenRequired';
 
 const router = Router();
 
@@ -32,7 +32,7 @@ router.get('/', getAllSnacks, getAllSnack);
 
 router.get('/burguers', getAllBurguer);
 router.get('/burguer/:id', getById);
-router.post('/create/burguer', createBurguer);
+router.post('/create/burguer', tokenRequired, createBurguer);
 router.put('/burguer/update/:id', updateBurguer);
 router.delete('/burguer/delete/:id', deleteBurguer);
 
