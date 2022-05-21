@@ -23,6 +23,5 @@ app.use(routes);
 app.use(error);
 
 app.on('ok', () => {
-  console.log('aqui');
   app.listen(process.env.PORT || 3333);
 });
