@@ -14,9 +14,6 @@ export const getAllBurguer = async (_req: Request, res: Response) => {
 export const getById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    if (Number(id) === 1) {
-      throw { status: 400, message: 'Error' };
-    }
     const burguer = await BurguerModel.findById(id);
     return res.status(200).json(burguer);
   } catch (error) {
