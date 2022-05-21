@@ -21,6 +21,7 @@ export const signin = async (req: Request, res: Response) => {
 export const getUser = async (req: Request, res: Response) => {
   try {
     const { password, email } = req.body;
+
     const user = await LoginModel.findOne({ email });
 
     if (!user) return res.status(404).send({ message: 'The username does not exist' });
