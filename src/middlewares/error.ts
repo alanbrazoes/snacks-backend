@@ -5,6 +5,6 @@ interface IError {
   message: string;
 }
 
-export const error = (err: IError, req: Request, res: Response, _next: NextFunction) => {
+export const error = (err: IError, _req: Request, res: Response, _next: NextFunction) => {
   res.status(err.status).json(err.message);
 };

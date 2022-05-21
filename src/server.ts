@@ -5,12 +5,13 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 import routes from '@router';
+import { error } from '@middlewares/error';
 
 const app = express();
 mongoose
   .connect(process.env.URLSERVER as string)
   .then(() => app.emit('ok'))
-  .catch((e) => app.emit(e));
+  .catch((err) => console.log(err));
 
 app.use(cors());
 app.use(helmet());
@@ -19,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(routes);
+
+app.use(error);
 
 app.on('ok', () => {
   app.listen(process.env.PORT || process.env.LISTEN);
