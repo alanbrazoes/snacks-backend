@@ -24,5 +24,5 @@ app.use(error);
 
 app.on('ok', () => {
   console.log('aqui');
-  app.listen(process.env.PORT || process.env.LISTEN);
+  app.listen(process.env.PORT || 3333);
 });
