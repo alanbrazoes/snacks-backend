@@ -1,5 +1,4 @@
 import express from 'express';
-import 'dotenv/config';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
