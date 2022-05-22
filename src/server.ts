@@ -5,7 +5,7 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 
-import routes from '@router';
+// import routes from '@router';
 import { error } from '@middlewares/error';
 
 const app = express();
@@ -22,12 +22,12 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (_req: Request, res: Response) => {
-  res.status(200).json({ response: 'ok' });
+  return res.status(200).json({ response: 'ok' });
 });
 
-app.use(routes);
+// app.use(routes);
 app.use(error);
 
 app.on('ok', () => {
-  app.listen(3333);
+  app.listen(process.env.PORT || process.env.LISTEN);
 });
