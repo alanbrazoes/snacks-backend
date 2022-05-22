@@ -1,5 +1,5 @@
 import express from 'express';
-// import 'dotenv/config';
+import 'dotenv/config';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -23,5 +23,5 @@ app.use(routes);
 app.use(error);
 
 app.on('ok', () => {
-  app.listen(process.env.PORT || process.env.LISTEN);
+  app.listen(process.env.LISTEN);
 });
