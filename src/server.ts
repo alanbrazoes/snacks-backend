@@ -28,6 +28,6 @@ app.get('/', (_req: Request, res: Response) => {
 // app.use(routes);
 // app.use(error);
 
-app.on('ok', () => {
-  app.listen(process.env.PORT || process.env.LISTEN);
-});
+app.listen(process.env.PORT || 3333);
+// app.on('ok', () => {
+// });
