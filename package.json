@@ -9,12 +9,12 @@
   "scripts": {
     "dev": "clear && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules ./src/server.ts",
     "start": "node dist/server.js",
-    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
+    "build": "npm install && babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
   },
   "author": "alan",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
+    "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.5",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
