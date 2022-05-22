@@ -4,8 +4,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
 
-import routes from '@router';
+// import routes from '@router';
 import { error } from '@middlewares/error';
+import { Request, Response } from 'express';
 
 const app = express();
 mongoose
@@ -19,9 +20,13 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(routes);
+app.get('/', (_req: Request, res: Response) => {
+  res.status(200).json({ response: 'ok' });
+});
+
+// app.use(routes);
 app.use(error);
 
 app.on('ok', () => {
-  app.listen(process.env.LISTEN);
+  app.listen(process.env.PORT || process.env.LISTEN);
 });
