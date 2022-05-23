@@ -1,52 +1,52 @@
 import PratosModel from '@models/dishes.model';
 import { Request, Response } from 'express';
 
-export const getAllPratos = async (req?: Request, res?: Response) => {
+export const getAllDishes = async (req?: Request, res?: Response) => {
   try {
     const data = await PratosModel.find();
     return res?.status(200).json(data);
   } catch (error) {
-    return res?.status(404).send('Pratos não encontrado');
+    return res?.status(404).json({ message: 'dishe not found' });
   }
 };
 
-export const getPrato = async (req: Request, res: Response) => {
+export const getDish = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const data = await PratosModel.findById(id);
     return res.status(200).json(data);
   } catch (error) {
-    return res.status(404).send('Prato não encontrado');
+    return res.status(404).json({ message: 'dishe not found' });
   }
 };
 
-export const createNewPrato = async (req: Request, res: Response) => {
+export const createNewDish = async (req: Request, res: Response) => {
   try {
     const { name, price, ingredients, type } = req.body;
     await PratosModel.create({ name, price, ingredients, type });
     return res.status(201).end();
   } catch (error) {
-    return res.status(400).send('Nao foi possivel cria um prato');
+    return res.status(400).json({ message: 'could not create a dish' });
   }
 };
 
-export const deletePrato = async (req: Request, res: Response) => {
+export const deleteDish = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     await PratosModel.findByIdAndDelete(id);
-    return res.status(200).send('Prato deletado');
+    return res.status(200).json({ message: 'deleted dish' });
   } catch (error) {
-    return res.status(404).send('Prato não encontrado');
+    return res.status(404).json({ message: 'dish not found' });
   }
 };
 
-export const updatePrato = async (req: Request, res: Response) => {
+export const updateDish = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, price, ingredients } = req.body;
     await PratosModel.findByIdAndUpdate(id, { name, price, ingredients });
     return res.status(200).end();
   } catch (error) {
-    return res.status(404).send('Prato não encontrado');
+    return res.status(404).json({ message: 'dish not found' });
   }
 };

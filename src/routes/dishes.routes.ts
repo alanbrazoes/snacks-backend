@@ -1,6 +1,6 @@
 import tokenRequired from '@middlewares/tokenRequired';
-import { deletePrato, updatePrato } from '../controllers/pratosController';
-import { createNewPrato, getAllPratos, getPrato } from '@controllers/pratosController';
+import { deletePrato, updatePrato } from '../controllers/dishesController';
+import { createNewPrato, getAllPratos, getPrato } from '@controllers/dishesController';
 import { Router } from 'express';
 
 const router = Router();
