@@ -13,7 +13,7 @@ const router = Router();
 router.get('/', getAllBurguer);
 router.get('/:id', getById);
 router.post('/create', tokenRequired, createBurguer);
-router.put('/update/:id', updateBurguer);
-router.delete('/delete/:id', deleteBurguer);
+router.put('/update/:id', tokenRequired, updateBurguer);
+router.delete('/delete/:id', tokenRequired, deleteBurguer);
 
 export default router;
