@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
-      "@router": ["./src/routes"],
+      "@router/*": ["./src/routes/*"],
       "@models/*": ["./src/models/*"],
       "@middlewares/*": ["./src/middlewares/*"]
     },
@@ -21,6 +21,6 @@
     "rootDir": "./src",
     "resolveJsonModule": true,
   },
-  "include": ["./src", "src/server.ts", "src/routes/routes.ts"],
+  "include": ["./src", "src/server.ts", "src/routes/index.ts"],
   "exclude": ["node_modules"]
 }

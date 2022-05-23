@@ -1,11 +1,13 @@
+import { getAllSnack } from '@controllers/allSnacksController';
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 
-import routes from 'src/routes/routes';
+import routes from '@router/index';
 import { error } from '@middlewares/error';
+import getAllSnacks from '@middlewares/getAllSnacks';
 
 const app = express();
 app.use(express.json());
@@ -22,7 +24,11 @@ app.use(helmet());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use(routes);
+app.use('/burguer', routes.burguer);
+app.use('/drink', routes.drink);
+app.use('/dishe', routes.dishes);
+app.use('/user', routes.user);
+app.get('/', getAllSnacks, getAllSnack);
 app.use(error);
 
 app.on('connected', () => {
