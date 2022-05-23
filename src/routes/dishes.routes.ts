@@ -1,14 +1,19 @@
 import tokenRequired from '@middlewares/tokenRequired';
-import { deletePrato, updatePrato } from '../controllers/dishController';
-import { createNewPrato, getAllPratos, getPrato } from '@controllers/dishesController';
+import {
+  createNewDish,
+  getAllDishes,
+  getDish,
+  deleteDish,
+  updateDish,
+} from '@controllers/dishController';
 import { Router } from 'express';
 
 const router = Router();
 
-router.get('/', getAllPratos);
-router.get('/:id', getPrato);
-router.post('/create', tokenRequired, createNewPrato);
-router.put('/update/:id', tokenRequired, updatePrato);
-router.delete('/delete/:id', tokenRequired, deletePrato);
+router.get('/', getAllDishes);
+router.get('/:id', getDish);
+router.post('/create', tokenRequired, createNewDish);
+router.put('/update/:id', tokenRequired, updateDish);
+router.delete('/delete/:id', tokenRequired, deleteDish);
 
 export default router;
