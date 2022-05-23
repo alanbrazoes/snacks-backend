@@ -21,6 +21,6 @@
     "rootDir": "./src",
     "resolveJsonModule": true,
   },
-  "include": ["./src", "src/server.ts", "src/routes.ts"],
+  "include": ["./src", "src/server.ts", "src/routes/routes.ts"],
   "exclude": ["node_modules"]
 }

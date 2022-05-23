@@ -4,7 +4,7 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 
-import routes from '@router';
+import routes from 'src/routes/routes';
 import { error } from '@middlewares/error';
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors());
 
 mongoose
   .connect(process.env.URLSERVER as string)
-  .then(() => app.emit('ok'))
+  .then(() => app.emit('connected'))
   .catch((err) => {
     throw { status: 500, message: err };
   });
@@ -25,6 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 app.use(error);
 
-app.on('ok', () => {
+app.on('connected', () => {
   app.listen(process.env.PORT || process.env.LISTEN);
 });
