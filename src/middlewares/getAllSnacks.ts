@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import burguer from '@models/BurguerModel';
-import drink from '@models/DrinksModel';
+import drink from '@models/drinks.model';
 import pratos from '@models/PratosModel';
 
 const models = [burguer, pratos, drink];

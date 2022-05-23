@@ -1,4 +1,4 @@
-import DrinkModel from '@models/DrinksModel';
+import DrinkModel from '@models/drinks.model';
 import { Request, Response } from 'express';
 
 export const createDrink = async (req: Request, res: Response) => {
