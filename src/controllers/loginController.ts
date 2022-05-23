@@ -12,9 +12,9 @@ export const signin = async (req: Request, res: Response) => {
       parseInt(process.env.CHARACTERS_NUMBER as string)
     );
     await LoginModel.create({ email, password: passwordHash });
-    return res.status(200).json({ status: '200' });
+    return res.status(201).json({ message: 'created user' });
   } catch (error) {
-    return res.status(500).send({ erro: error });
+    return res.status(500).json({ erro: error });
   }
 };
 
@@ -24,9 +24,9 @@ export const getUser = async (req: Request, res: Response) => {
 
     const user = await LoginModel.findOne({ email });
 
-    if (!user) return res.status(404).send({ message: 'The username does not exist' });
+    if (!user) return res.status(404).json({ message: 'the username does not exist' });
     if (!Bcript.compareSync(password, user.password)) {
-      return res.status(400).send({ message: 'The password is invalid' });
+      return res.status(400).json({ message: 'The password is invalid' });
     }
 
     const { email: emailUser } = user;
@@ -36,6 +36,6 @@ export const getUser = async (req: Request, res: Response) => {
 
     return res.status(200).json({ token });
   } catch (error) {
-    return res.status(500).json({ error });
+    return res.status(500).json({ error: 'internal error' });
   }
 };
