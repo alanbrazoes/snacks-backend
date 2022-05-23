@@ -1,5 +1,5 @@
 import tokenRequired from '@middlewares/tokenRequired';
-import { deletePrato, updatePrato } from '../controllers/dishesController';
+import { deletePrato, updatePrato } from '../controllers/dishController';
 import { createNewPrato, getAllPratos, getPrato } from '@controllers/dishesController';
 import { Router } from 'express';
 

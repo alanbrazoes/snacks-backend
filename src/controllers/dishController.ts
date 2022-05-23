@@ -1,12 +1,12 @@
 import PratosModel from '@models/dishes.model';
 import { Request, Response } from 'express';
 
-export const getAllDishes = async (req?: Request, res?: Response) => {
+export const getAllDishes = async (_req: Request, res: Response) => {
   try {
     const data = await PratosModel.find();
-    return res?.status(200).json(data);
+    return res.status(200).json(data);
   } catch (error) {
-    return res?.status(404).json({ message: 'dishe not found' });
+    return res.status(404).json({ message: 'dishe not found' });
   }
 };
 
