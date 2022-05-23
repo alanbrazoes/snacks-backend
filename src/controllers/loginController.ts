@@ -1,4 +1,4 @@
-import LoginModel from '@models/loginModel';
+import LoginModel from '@models/user.model';
 import Bcript from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 

@@ -1,4 +1,4 @@
-import PratosModel from '@models/PratosModel';
+import PratosModel from '@models/dishes.model';
 import { Request, Response } from 'express';
 
 export const getAllPratos = async (req?: Request, res?: Response) => {

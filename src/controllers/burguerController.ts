@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import BurguerModel from '@models/BurguerModel';
+import BurguerModel from '@models/burguer.model';
 
 export const getAllBurguer = async (_req: Request, res: Response) => {
   try {
