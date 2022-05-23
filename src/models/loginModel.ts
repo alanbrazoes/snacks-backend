@@ -1,8 +1,14 @@
 import mongoose from 'mongoose';
 
 const LoginSchema = new mongoose.Schema({
-  email: String,
-  password: String,
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
 const LoginModel = mongoose.model('users', LoginSchema);
