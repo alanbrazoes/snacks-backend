@@ -1,13 +1,14 @@
 import { Request, Response } from 'express';
 
 import BurguerModel from '@models/burguer.model';
+import burguerServices from '@services/burguer.services';
 
 export const getAllBurguer = async (_req: Request, res: Response) => {
   try {
-    const data = await BurguerModel.find();
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(404).json({ error });
+    const burguers = await burguerServices.getAllburguers();
+    res.status(200).json(burguers);
+  } catch (_error) {
+    res.status(500).json({ error: 'internal error' });
   }
 };
 
