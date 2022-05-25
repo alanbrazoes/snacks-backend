@@ -9,4 +9,13 @@ const getAllburguers = async () => {
   }
 };
 
-export { getAllburguers };
+const getBurguerById = async (id: string) => {
+  try {
+    const burguer = await BurguerModel.findById(id);
+    return burguer;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export { getAllburguers, getBurguerById };
