@@ -6,7 +6,7 @@ import {
   getDrink,
   updateDrink,
 } from '@controllers/drinkController';
-import tokenRequired from '@middlewares/tokenRequired';
+import { tokenRequired } from '@middlewares/tokenRequired';
 
 const router = Router();
 

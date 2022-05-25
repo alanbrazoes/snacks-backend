@@ -1,4 +1,4 @@
-import BurguerModel from '@models/burguer.model';
+import { BurguerModel } from '@models/burguer.model';
 
 const getAllburguers = async () => {
   try {
@@ -9,4 +9,4 @@ const getAllburguers = async () => {
   }
 };
 
-export default { getAllburguers };
+export { getAllburguers };

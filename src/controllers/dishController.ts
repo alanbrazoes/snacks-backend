@@ -1,7 +1,7 @@
-import PratosModel from '@models/dishes.model';
+import { PratosModel } from '@models/dishes.model';
 import { Request, Response } from 'express';
 
-export const getAllDishes = async (_req: Request, res: Response) => {
+const getAllDishes = async (_req: Request, res: Response) => {
   try {
     const data = await PratosModel.find();
     return res.status(200).json(data);
@@ -10,7 +10,7 @@ export const getAllDishes = async (_req: Request, res: Response) => {
   }
 };
 
-export const getDish = async (req: Request, res: Response) => {
+const getDish = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const data = await PratosModel.findById(id);
@@ -20,7 +20,7 @@ export const getDish = async (req: Request, res: Response) => {
   }
 };
 
-export const createNewDish = async (req: Request, res: Response) => {
+const createNewDish = async (req: Request, res: Response) => {
   try {
     const { name, price, ingredients, type } = req.body;
     await PratosModel.create({ name, price, ingredients, type });
@@ -30,7 +30,7 @@ export const createNewDish = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteDish = async (req: Request, res: Response) => {
+const deleteDish = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     await PratosModel.findByIdAndDelete(id);
@@ -40,7 +40,7 @@ export const deleteDish = async (req: Request, res: Response) => {
   }
 };
 
-export const updateDish = async (req: Request, res: Response) => {
+const updateDish = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, price, ingredients } = req.body;
@@ -50,3 +50,5 @@ export const updateDish = async (req: Request, res: Response) => {
     return res.status(404).json({ message: 'dish not found' });
   }
 };
+
+export { getAllDishes, getDish, createNewDish, updateDish, deleteDish };

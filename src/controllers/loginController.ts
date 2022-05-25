@@ -1,10 +1,10 @@
-import LoginModel from '@models/user.model';
+import { LoginModel } from '@models/user.model';
 import Bcript from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 
 import { Request, Response } from 'express';
 
-export const signin = async (req: Request, res: Response) => {
+const signin = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const passwordHash = Bcript.hashSync(
@@ -18,7 +18,7 @@ export const signin = async (req: Request, res: Response) => {
   }
 };
 
-export const getUser = async (req: Request, res: Response) => {
+const getUser = async (req: Request, res: Response) => {
   try {
     const { password, email } = req.body;
 
@@ -39,3 +39,5 @@ export const getUser = async (req: Request, res: Response) => {
     return res.status(500).json({ error: 'internal error' });
   }
 };
+
+export { getUser, signin };

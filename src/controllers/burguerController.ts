@@ -1,18 +1,18 @@
 import { Request, Response } from 'express';
 
-import BurguerModel from '@models/burguer.model';
-import burguerServices from '@services/burguer.services';
+import { BurguerModel } from '@models/burguer.model';
+import { getAllburguers } from '@services/burguer.services';
 
-export const getAllBurguer = async (_req: Request, res: Response) => {
+const getAllBurguer = async (_req: Request, res: Response) => {
   try {
-    const burguers = await burguerServices.getAllburguers();
+    const burguers = await getAllburguers();
     res.status(200).json(burguers);
   } catch (_error) {
     res.status(500).json({ error: 'internal error' });
   }
 };
 
-export const getById = async (req: Request, res: Response) => {
+const getById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const burguer = await BurguerModel.findById(id);
@@ -22,7 +22,7 @@ export const getById = async (req: Request, res: Response) => {
   }
 };
 
-export const createBurguer = async (req: Request, res: Response) => {
+const createBurguer = async (req: Request, res: Response) => {
   try {
     const { name, preparationTime, ingredients, price, type } = req.body;
     await BurguerModel.create({ name, preparationTime, ingredients, price, type });
@@ -32,7 +32,7 @@ export const createBurguer = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteBurguer = async (req: Request, res: Response) => {
+const deleteBurguer = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     await BurguerModel.findByIdAndDelete(id);
@@ -42,7 +42,7 @@ export const deleteBurguer = async (req: Request, res: Response) => {
   }
 };
 
-export const updateBurguer = async (req: Request, res: Response) => {
+const updateBurguer = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, preparationTime, ingredients } = req.body;
@@ -52,3 +52,5 @@ export const updateBurguer = async (req: Request, res: Response) => {
     return res.status(404).json({ message: 'hamburguer not found.' });
   }
 };
+
+export { getAllBurguer, getById, createBurguer, updateBurguer, deleteBurguer };

@@ -1,4 +1,4 @@
-import tokenRequired from '@middlewares/tokenRequired';
+import { tokenRequired } from '@middlewares/tokenRequired';
 import {
   createNewDish,
   getAllDishes,

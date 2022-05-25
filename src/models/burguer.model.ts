@@ -25,4 +25,4 @@ const BurguerSchema = new mongoose.Schema({
 
 const BurguerModel = mongoose.model('hamburguers', BurguerSchema);
 
-export default BurguerModel;
+export { BurguerModel };

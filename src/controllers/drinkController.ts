@@ -1,7 +1,7 @@
-import DrinkModel from '@models/drinks.model';
+import { DrinkModel } from '@models/drinks.model';
 import { Request, Response } from 'express';
 
-export const createDrink = async (req: Request, res: Response) => {
+const createDrink = async (req: Request, res: Response) => {
   try {
     const { name, price, type } = req.body;
     await DrinkModel.create({ name, price, type });
@@ -11,7 +11,7 @@ export const createDrink = async (req: Request, res: Response) => {
   }
 };
 
-export const getAllDrinks = async (req: Request, res: Response) => {
+const getAllDrinks = async (req: Request, res: Response) => {
   try {
     const data = await DrinkModel.find();
     return res.status(200).json(data);
@@ -20,7 +20,7 @@ export const getAllDrinks = async (req: Request, res: Response) => {
   }
 };
 
-export const getDrink = async (req: Request, res: Response) => {
+const getDrink = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const data = await DrinkModel.findById(id);
@@ -30,7 +30,7 @@ export const getDrink = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteDrink = async (req: Request, res: Response) => {
+const deleteDrink = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     await DrinkModel.findByIdAndDelete(id);
@@ -40,7 +40,7 @@ export const deleteDrink = async (req: Request, res: Response) => {
   }
 };
 
-export const updateDrink = async (req: Request, res: Response) => {
+const updateDrink = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { name, price } = req.body;
@@ -50,3 +50,5 @@ export const updateDrink = async (req: Request, res: Response) => {
     return res.status(404).json({ message: 'drink not found' });
   }
 };
+
+export { getAllDrinks, getDrink, createDrink, updateDrink, deleteDrink };

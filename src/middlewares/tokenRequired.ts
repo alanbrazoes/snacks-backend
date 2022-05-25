@@ -20,4 +20,4 @@ const tokenRequired = (req: Request, _res: Response, next: NextFunction) => {
   }
 };
 
-export default tokenRequired;
+export { tokenRequired };

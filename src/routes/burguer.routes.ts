@@ -5,7 +5,7 @@ import {
   getById,
   updateBurguer,
 } from '@controllers/burguerController';
-import tokenRequired from '@middlewares/tokenRequired';
+import { tokenRequired } from '@middlewares/tokenRequired';
 import { Router } from 'express';
 
 const router = Router();
