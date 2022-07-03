@@ -21,4 +21,20 @@ const createBurguerService = async (
   return true;
 };
 
-export { getAllburguers, getBurguerById, createBurguerService };
+const updateBurguer = async ({ id, name, preparationTime, ingredients }: any) => {
+  await BurguerModel.findByIdAndUpdate(id, { name, preparationTime, ingredients });
+  return true;
+};
+
+const deleteBurguer = async (id: string) => {
+  await BurguerModel.findByIdAndDelete(id);
+  return true;
+};
+
+export default {
+  getAllburguers,
+  getBurguerById,
+  createBurguerService,
+  deleteBurguer,
+  updateBurguer,
+};
