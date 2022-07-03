@@ -1,21 +1,24 @@
 import { BurguerModel } from '@models/burguer.model';
 
 const getAllburguers = async () => {
-  try {
-    const data = await BurguerModel.find();
-    return data;
-  } catch (error) {
-    return Promise.reject(error);
-  }
+  const data = await BurguerModel.find();
+  return data;
 };
 
 const getBurguerById = async (id: string) => {
-  try {
-    const burguer = await BurguerModel.findById(id);
-    return burguer;
-  } catch (error) {
-    return Promise.reject(error);
-  }
+  const burguer = await BurguerModel.findById(id);
+  return burguer;
 };
 
-export { getAllburguers, getBurguerById };
+const createBurguerService = async (
+  name: string,
+  preparationTime: number,
+  ingredients: string[],
+  price: number,
+  type: string
+) => {
+  await BurguerModel.create({ name, preparationTime, ingredients, price, type });
+  return true;
+};
+
+export { getAllburguers, getBurguerById, createBurguerService };

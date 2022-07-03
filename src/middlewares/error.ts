@@ -1,12 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import { ErrorRequestHandler } from 'express';
 
-interface IError {
-  status: number;
-  message: string;
-}
-
-const error = (err: IError, _req: Request, res: Response, _next: NextFunction) => {
-  res.status(err.status).json(err.message);
+const error: ErrorRequestHandler = (err, _req, res, _next) => {
+  res.status(err.status || 500).json({ message: err.message });
 };
 
 export { error };
