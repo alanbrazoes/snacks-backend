@@ -23,7 +23,7 @@ const createBurguer = rescue(async (req: Request, res: Response) => {
 const deleteBurguer = rescue(async (req: Request, res: Response) => {
   const { id } = req.params;
   await BurguerServices.deleteBurguer(id);
-  res.status(204);
+  res.status(204).json();
 });
 
 const updateBurguer = rescue(async (req: Request, res: Response) => {
