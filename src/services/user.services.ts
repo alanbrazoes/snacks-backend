@@ -6,6 +6,10 @@ const getUser = async (email: string) => {
 };
 
 const signin = async (email: string, password: string) => {
+  if (email || password) {
+    throw { message: 'email and password is required', status: 400 };
+  }
+
   const user = await LoginModel.create({ email, password });
   return user;
 };
