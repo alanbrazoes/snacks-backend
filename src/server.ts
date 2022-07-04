@@ -7,7 +7,6 @@ import helmet from 'helmet';
 
 import routes from '@router/index';
 import { error } from '@middlewares/error';
-import getAllSnacks from '@middlewares/getAllSnacks';
 
 const app = express();
 app.use(express.json());
@@ -28,7 +27,7 @@ app.use('/burguer', routes.burguer);
 app.use('/drink', routes.drink);
 app.use('/dish', routes.dishes);
 app.use('/user', routes.user);
-app.get('/', getAllSnacks, allSnacks.getAllSnack);
+app.get('/', allSnacks.getAllSnack);
 app.use(error);
 
 app.on('connected', () => {
