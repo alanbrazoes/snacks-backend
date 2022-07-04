@@ -32,4 +32,4 @@ const updateDrink = rescue(async (req: Request, res: Response) => {
   res.status(200).json(drink);
 });
 
-export { getAllDrinks, getDrinkById, createDrink, updateDrink, deleteDrink };
+export default { getAllDrinks, getDrinkById, createDrink, updateDrink, deleteDrink };

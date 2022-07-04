@@ -21,4 +21,4 @@ const DishesScheema = new mongoose.Schema({
 
 const DishesModel = mongoose.model('dishes', DishesScheema);
 
-export { DishesModel };
+export default DishesModel;

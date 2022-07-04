@@ -1,4 +1,13 @@
-import { BurguerModel } from '@models/burguer.model';
+import { BurguerModel } from '@models/index';
+
+interface IBurguer {
+  name: string;
+  preparationTime: number;
+  ingredients: string[];
+  price: number;
+  type: string;
+  id?: string;
+}
 
 const getAllburguers = async () => {
   const data = await BurguerModel.find();
@@ -10,18 +19,18 @@ const getBurguerById = async (id: string) => {
   return burguer;
 };
 
-const createBurguerService = async (
-  name: string,
-  preparationTime: number,
-  ingredients: string[],
-  price: number,
-  type: string
-) => {
+const createBurguerService = async ({
+  name,
+  preparationTime,
+  ingredients,
+  price,
+  type,
+}: IBurguer) => {
   await BurguerModel.create({ name, preparationTime, ingredients, price, type });
   return true;
 };
 
-const updateBurguer = async ({ id, name, preparationTime, ingredients }: any) => {
+const updateBurguer = async ({ id, name, preparationTime, ingredients }: IBurguer) => {
   await BurguerModel.findByIdAndUpdate(id, { name, preparationTime, ingredients });
   return true;
 };

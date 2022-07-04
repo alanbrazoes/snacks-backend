@@ -16,7 +16,7 @@ const getById = rescue(async (req: Request, res: Response) => {
 
 const createBurguer = rescue(async (req: Request, res: Response) => {
   const { name, preparationTime, ingredients, price, type } = req.body;
-  await BurguerServices.createBurguerService(name, preparationTime, ingredients, price, type);
+  await BurguerServices.createBurguerService({ name, preparationTime, ingredients, price, type });
   res.status(201).json({ message: 'created burguer' });
 });
 
@@ -28,9 +28,9 @@ const deleteBurguer = rescue(async (req: Request, res: Response) => {
 
 const updateBurguer = rescue(async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, preparationTime, ingredients } = req.body;
-  await BurguerServices.updateBurguer({ id, name, preparationTime, ingredients });
+  const { name, preparationTime, ingredients, price, type } = req.body;
+  await BurguerServices.updateBurguer({ id, name, preparationTime, ingredients, type, price });
   res.status(204).json({ message: 'updated' });
 });
 
-export { getAllBurguer, getById, createBurguer, updateBurguer, deleteBurguer };
+export default { getAllBurguer, getById, createBurguer, updateBurguer, deleteBurguer };

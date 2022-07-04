@@ -1,4 +1,4 @@
-import { DishesModel } from '@models/dishes.model';
+import { DishModel } from '@models/index';
 
 interface IDish {
   name: string;
@@ -9,27 +9,27 @@ interface IDish {
 }
 
 const getAllDishes = async () => {
-  const dishes = await DishesModel.find();
+  const dishes = await DishModel.find();
   return dishes;
 };
 
 const getDishById = async (id: string) => {
-  const dish = await DishesModel.findById(id);
+  const dish = await DishModel.findById(id);
   return dish;
 };
 
 const createDish = async ({ name, price, ingredients, type }: IDish) => {
-  const dish = await DishesModel.create({ name, price, ingredients, type });
+  const dish = await DishModel.create({ name, price, ingredients, type });
   return dish;
 };
 
 const updateDish = async ({ name, price, ingredients, type, id }: IDish) => {
-  const dish = await DishesModel.findByIdAndUpdate(id, { name, price, ingredients, type });
+  const dish = await DishModel.findByIdAndUpdate(id, { name, price, ingredients, type });
   return dish;
 };
 
 const deleteDish = async (id: string) => {
-  await DishesModel.findByIdAndDelete(id);
+  await DishModel.findByIdAndDelete(id);
   return;
 };
 

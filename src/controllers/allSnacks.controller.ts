@@ -5,4 +5,4 @@ const getAllSnack = async (_req: Request, res: Response) => {
   return res.status(200).json(response);
 };
 
-export { getAllSnack };
+export default { getAllSnack };

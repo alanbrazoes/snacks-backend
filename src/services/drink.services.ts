@@ -1,4 +1,4 @@
-import { DrinkModel } from '@models/drinks.model';
+import { DrinkModel } from '@models/index';
 
 interface IDrink {
   name: string;

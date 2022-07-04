@@ -33,4 +33,4 @@ const updateDish = rescue(async (req: Request, res: Response) => {
   res.status(200).json(dish);
 });
 
-export { getAllDishes, getDishById, createNewDish, updateDish, deleteDish };
+export default { getAllDishes, getDishById, createNewDish, updateDish, deleteDish };

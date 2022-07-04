@@ -30,4 +30,4 @@ const getUser = rescue(async (req: Request, res: Response) => {
   res.status(200).json({ token });
 });
 
-export { getUser, signin };
+export default { getUser, signin };

@@ -1,4 +1,4 @@
-import { getAllSnack } from '@controllers/allSnacksController';
+import { allSnacks } from '@controllers/index';
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
@@ -28,7 +28,7 @@ app.use('/burguer', routes.burguer);
 app.use('/drink', routes.drink);
 app.use('/dish', routes.dishes);
 app.use('/user', routes.user);
-app.get('/', getAllSnacks, getAllSnack);
+app.get('/', getAllSnacks, allSnacks.getAllSnack);
 app.use(error);
 
 app.on('connected', () => {
