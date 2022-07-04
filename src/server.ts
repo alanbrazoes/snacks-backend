@@ -4,7 +4,6 @@ import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
-import csurf from 'csurf';
 
 import routes from '@router/index';
 import { error } from '@middlewares/error';
@@ -12,8 +11,6 @@ import { error } from '@middlewares/error';
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-app.use(csurf());
 
 mongoose
   .connect(process.env.URLSERVER as string)
