@@ -18,7 +18,8 @@
           "@router": "./src/routes",
           "@models": "./src/models",
           "@controllers": "./src/controllers",
-          "@middlewares": "./src/middlewares"
+          "@middlewares": "./src/middlewares",
+          "@services": "./src/services"
         }
       }
     ]

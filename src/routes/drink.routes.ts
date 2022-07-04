@@ -1,19 +1,13 @@
 import { Router } from 'express';
-import {
-  createDrink,
-  deleteDrink,
-  getAllDrinks,
-  getDrink,
-  updateDrink,
-} from '@controllers/drinkController';
-import tokenRequired from '@middlewares/tokenRequired';
+import { drink } from '@controllers/index';
+import { tokenRequired } from '@middlewares/tokenRequired';
 
 const router = Router();
 
-router.get('/', getAllDrinks);
-router.get('/:id', getDrink);
-router.post('/create', tokenRequired, createDrink);
-router.put('/update/:id', tokenRequired, updateDrink);
-router.delete('/delete/:id', tokenRequired, deleteDrink);
+router.get('/', drink.getAllDrinks);
+router.get('/:id', drink.getDrinkById);
+router.post('/create', tokenRequired, drink.createDrink);
+router.put('/update/:id', tokenRequired, drink.updateDrink);
+router.delete('/delete/:id', tokenRequired, drink.deleteDrink);
 
 export default router;

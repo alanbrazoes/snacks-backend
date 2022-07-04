@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-import burguer from '@models/burguer.model';
-import drink from '@models/drinks.model';
-import pratos from '@models/dishes.model';
+import { BurguerModel } from '@models/burguer.model';
+import { DrinkModel } from '@models/drinks.model';
+import { PratosModel } from '@models/dishes.model';
 
-const models = [burguer, pratos, drink];
+const models = [BurguerModel, PratosModel, DrinkModel];
 
-const getAllSnacks = async (req: Request, res: Response, next: NextFunction) => {
+const getAllSnacks = async (_req: Request, res: Response, next: NextFunction) => {
   try {
     let snack = {};
     const getSnacks = models.map(async (model) => {
@@ -21,7 +21,7 @@ const getAllSnacks = async (req: Request, res: Response, next: NextFunction) => 
     res.locals.all = snack;
     next();
   } catch (error) {
-    return res.send(error);
+    return res.status(500).json({ error: 'internal error' });
   }
 };
 

@@ -5,7 +5,8 @@
       "@controllers/*": ["./src/controllers/*"],
       "@router/*": ["./src/routes/*"],
       "@models/*": ["./src/models/*"],
-      "@middlewares/*": ["./src/middlewares/*"]
+      "@middlewares/*": ["./src/middlewares/*"],
+      "@services/*": ["./src/services/*"]
     },
     "target": "ES2017", 
     "module": "CommonJS",
