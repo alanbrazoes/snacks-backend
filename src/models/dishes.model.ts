@@ -19,6 +19,6 @@ const DishesScheema = new mongoose.Schema({
   },
 });
 
-const PratosModel = mongoose.model('dishes', DishesScheema);
+const DishesModel = mongoose.model('dishes', DishesScheema);
 
-export { PratosModel };
+export { DishesModel };

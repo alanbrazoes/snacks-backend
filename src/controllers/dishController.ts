@@ -1,54 +1,36 @@
-import { PratosModel } from '@models/dishes.model';
 import { Request, Response } from 'express';
+import rescue from 'express-rescue';
 
-const getAllDishes = async (_req: Request, res: Response) => {
-  try {
-    const data = await PratosModel.find();
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(404).json({ message: 'dishe not found' });
-  }
-};
+import dishServices from '@services/dish.services';
 
-const getDish = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const data = await PratosModel.findById(id);
-    return res.status(200).json(data);
-  } catch (error) {
-    return res.status(404).json({ message: 'dishe not found' });
-  }
-};
+const getAllDishes = rescue(async (_req: Request, res: Response) => {
+  const data = await dishServices.getAllDishes();
+  res.status(200).json(data);
+});
 
-const createNewDish = async (req: Request, res: Response) => {
-  try {
-    const { name, price, ingredients, type } = req.body;
-    await PratosModel.create({ name, price, ingredients, type });
-    return res.status(201).end();
-  } catch (error) {
-    return res.status(400).json({ message: 'could not create a dish' });
-  }
-};
+const getDishById = rescue(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const data = await dishServices.getDishById(id);
+  res.status(200).json(data);
+});
 
-const deleteDish = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    await PratosModel.findByIdAndDelete(id);
-    return res.status(200).json({ message: 'deleted dish' });
-  } catch (error) {
-    return res.status(404).json({ message: 'dish not found' });
-  }
-};
+const createNewDish = rescue(async (req: Request, res: Response) => {
+  const { name, price, ingredients, type } = req.body;
+  const dish = await dishServices.createDish({ name, price, ingredients, type });
+  res.status(201).json(dish);
+});
 
-const updateDish = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const { name, price, ingredients } = req.body;
-    await PratosModel.findByIdAndUpdate(id, { name, price, ingredients });
-    return res.status(200).end();
-  } catch (error) {
-    return res.status(404).json({ message: 'dish not found' });
-  }
-};
+const deleteDish = rescue(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await dishServices.deleteDish(id);
+  res.status(200).json({ message: 'deleted dish' });
+});
 
-export { getAllDishes, getDish, createNewDish, updateDish, deleteDish };
+const updateDish = rescue(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { name, price, ingredients, type } = req.body;
+  const dish = await dishServices.updateDish({ name, price, ingredients, type, id });
+  res.status(200).json(dish);
+});
+
+export { getAllDishes, getDishById, createNewDish, updateDish, deleteDish };

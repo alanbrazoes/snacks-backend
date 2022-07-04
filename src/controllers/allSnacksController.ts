@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-const getAllSnack = async (req: Request, res: Response) => {
+const getAllSnack = async (_req: Request, res: Response) => {
   const response: Array<[]> = await res.locals.all;
   return res.status(200).json(response);
 };

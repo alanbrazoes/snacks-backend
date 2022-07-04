@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/burguer', routes.burguer);
 app.use('/drink', routes.drink);
-app.use('/dishe', routes.dishes);
+app.use('/dish', routes.dishes);
 app.use('/user', routes.user);
 app.get('/', getAllSnacks, getAllSnack);
 app.use(error);
